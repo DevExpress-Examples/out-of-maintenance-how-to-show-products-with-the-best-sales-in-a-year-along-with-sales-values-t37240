@@ -3,10 +3,10 @@
 
 * [Form1.cs](./CS/Dashboard_AggrBestSalesProducts/Form1.cs) (VB: [Form1.vb](./VB/Dashboard_AggrBestSalesProducts/Form1.vb))
 <!-- default file list end -->
-# Best Selling Product by Year
+# Highest Product Sales by Year
 
 
-This example demonstrates how to use the [Aggr](https://docs.devexpress.com/Dashboard/115870) function to display products with the best sales by year. 
+This example demonstrates how to use the [Aggr](https://docs.devexpress.com/Dashboard/115870) function to display products with the highest sales by year. 
 
 ![screenshot](images/screenshot.png)
 

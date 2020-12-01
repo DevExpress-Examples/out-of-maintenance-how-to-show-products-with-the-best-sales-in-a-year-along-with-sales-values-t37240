@@ -2,8 +2,7 @@
 <Dashboard CurrencyCulture="en-US">
   <Title Text="Dashboard" />
   <DataSources>
-    <SqlDataSource ComponentName="dashboardSqlDataSource1" DataProcessingMode="Client">
-      <Name>SQL Data Source 1</Name>
+    <SqlDataSource Name="SQL Data Source 1" ComponentName="dashboardSqlDataSource1" DataProcessingMode="Client">
       <Connection Name="nwind" ProviderKey="InMemorySetFull">
         <Parameters>
           <Parameter Name="database" Value="..\..\Data\nwind.xml" />
@@ -40,31 +39,31 @@
           </View>
         </DataSet>
       </ResultSchema>
-      <ConnectionOptions CloseConnection="true" CommandTimeout="300" />
+      <ConnectionOptions CloseConnection="true" DbCommandTimeout="300" />
       <CalculatedFields>
         <CalculatedField Name="Sales" Expression="[UnitPrice] * [Quantity]" DataType="Object" DataMember="Orders" />
         <CalculatedField Name="Product Sales by Year" Expression="Aggr(Sum([Sales]), GetYear([OrderDate]), [ProductName])" DataType="Object" DataMember="Orders" />
         <CalculatedField Name="Max Product Sales by Year" Expression="Aggr(Max([Product Sales by Year]), GetYear([OrderDate]))" DataType="Object" DataMember="Orders" />
-        <CalculatedField Name="Best Sales Product" Expression="Iif([Max Product Sales by Year] = [Product Sales by Year], [ProductName] + ' ($ ' + [Product Sales by Year] + ')', null)" DataType="Object" DataMember="Orders" />
+        <CalculatedField Name="Highest Product Sales" Expression="Iif([Max Product Sales by Year] = [Product Sales by Year], [ProductName] + ' ($ ' + [Product Sales by Year] + ')', null)" DataType="Object" DataMember="Orders" />
       </CalculatedFields>
     </SqlDataSource>
   </DataSources>
   <Items>
     <Grid ComponentName="gridDashboardItem1" Name="Best Sales Products" DataSource="dashboardSqlDataSource1" DataMember="Orders">
       <DataItems>
-        <Dimension DataMember="OrderDate" UniqueName="DataItem0" />
-        <Measure DataMember="Sales" UniqueName="DataItem1" />
-        <Measure DataMember="Best Sales Product" SummaryType="Max" UniqueName="DataItem2" />
+        <Dimension DataMember="OrderDate" DefaultId="DataItem0" />
+        <Measure DataMember="Sales" DefaultId="DataItem1" />
+        <Measure DataMember="Highest Product Sales" Name="Highest Product Sales (Max)" SummaryType="Max" DefaultId="DataItem2" />
       </DataItems>
       <GridColumns>
         <GridDimensionColumn>
-          <Dimension UniqueName="DataItem0" />
+          <Dimension DefaultId="DataItem0" />
         </GridDimensionColumn>
         <GridMeasureColumn>
-          <Measure UniqueName="DataItem1" />
+          <Measure DefaultId="DataItem1" />
         </GridMeasureColumn>
         <GridMeasureColumn>
-          <Measure UniqueName="DataItem2" />
+          <Measure DefaultId="DataItem2" />
         </GridMeasureColumn>
       </GridColumns>
       <GridOptions />
