@@ -8,6 +8,8 @@
 
 This example demonstrates how to use the [Aggr](https://docs.devexpress.com/Dashboard/115870) function to display products with the highest sales by year. 
 
+## Example Structure
+
 ![screenshot](images/screenshot.png)
 
 Aggregated data use the following custom expressions:
