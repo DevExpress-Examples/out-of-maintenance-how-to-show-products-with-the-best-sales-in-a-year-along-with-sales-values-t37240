@@ -16,6 +16,7 @@ Aggregated data use the following custom expressions:
 | --- | --- |
 | Max Product Sales by Year | ``` Aggr(Max([Product Sales by Year]), GetYear([OrderDate])) ``` |
 | Product Sales by Year | ``` Aggr(Sum([Sales]), GetYear([OrderDate]), [ProductName]) ``` |
+| Highest Product Sales | ``` Iif([Max Product Sales by Year] = [Product Sales by Year], [ProductName] + ' ($ ' + [Product Sales by Year] + ')', null) ``` |
 
 ## Documentation
 
